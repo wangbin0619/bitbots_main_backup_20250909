@@ -81,8 +81,19 @@ SHELL ["/bin/zsh", "-c"]
 RUN mkdir -p "/root/colcon_ws"
 
 # Install oh-my-zsh for pretty terminal
-RUN sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# RUN sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
+#   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# First remove any existing oh-my-zsh directory to avoid conflicts
+RUN rm -rf /root/.oh-my-zsh
+
+# Then copy your local directories
+COPY ohmyzsh/ /root/.oh-my-zsh/
+COPY zsh-autosuggestions/ ${ZSH_CUSTOM:-/root/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/
+
+# No need to run install.sh since we've directly copied the files
+# Just ensure proper permissions
+RUN chown -R root:root /root/.oh-my-zsh
 
 # Add zshrc
 COPY zshrc "/root/.zshrc"
