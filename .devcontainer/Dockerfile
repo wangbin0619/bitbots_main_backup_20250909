@@ -103,3 +103,9 @@ ENV QT_X11_NO_MITSHM=1
 
 # Switch to the workspace directory
 WORKDIR "/root/colcon_ws"
+
+# To install related package
+COPY webots_2022b_amd64.deb /tmp/webots_2022b_amd64.deb
+RUN apt-get install -y /tmp/webots_2022b_amd64.deb
+
+

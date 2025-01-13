@@ -97,6 +97,10 @@
 		],
 		"python.analysis.extraPaths": [
 			"/opt/ros/iron/lib/python3.10/site-packages"
+		],
+		"cSpell.words": [
+			"turtlesim",
+			"xhost"
 		]
 	}
 }

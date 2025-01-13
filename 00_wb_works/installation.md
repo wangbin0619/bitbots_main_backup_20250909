@@ -1,21 +1,26 @@
 # Dev Container
+
 Dev Container is used based on bitbots code base.
 
 ## Directory Path
+
 1. /srv/host_home/git/bitbots/software
 2. /root/colcon_ws/src/bitbots_main/.devcontainer
 
 ## Forwarding display from docker container to host
-**(Done in Dev Container devcontainer.json)** 
+
+**(Done in Dev Container devcontainer.json)**
 
 1. First, exit the container if you're in it.
 
 2. On your host machine (Ubuntu), allow X server connections:
+
 ```bash
 xhost +local:docker
 ```
 
 3. When running the Docker container, add these flags to allow GUI applications:
+
 ```bash
 docker run -it \
     --env="DISPLAY" \
@@ -25,6 +30,7 @@ docker run -it \
 ```
 
 Or if you're using `docker exec` to enter a running container:
+
 ```bash
 docker exec -it \
     --env="DISPLAY" \
@@ -33,11 +39,13 @@ docker exec -it \
 ```
 
 After this, try running the turtlesim node again:
+
 ```bash
 ros2 run turtlesim turtlesim_node
 ```
 
 If you still have issues, you might need to install additional QT dependencies in your Docker container:
+
 ```bash
 apt-get update && apt-get install -y \
     qt5-default \
@@ -47,6 +55,7 @@ apt-get update && apt-get install -y \
 ```
 
 Remember to revoke X server access when you're done:
+
 ```bash
 xhost -local:docker
 ```
