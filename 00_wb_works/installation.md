@@ -1,16 +1,12 @@
-# Installation
+# Dev Container
+Dev Container is used based on bitbots code base.
 
-## Docker file
-
-Refer to Dockerfile for build docker image based on Ubuntu 22.04+Ros2.
-
-## Ros2
-
-```bash
-source /opt/ros/iron/setup.bash
-```
+## Directory Path
+1. /srv/host_home/git/bitbots/software
+2. /root/colcon_ws/src/bitbots_main/.devcontainer
 
 ## Forwarding display from docker container to host
+**(Done in Dev Container devcontainer.json)** 
 
 1. First, exit the container if you're in it.
 

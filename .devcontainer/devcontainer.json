@@ -7,7 +7,11 @@
     "DISPLAY": "${localEnv:DISPLAY}",
     "LIBGL_ALWAYS_SOFTWARE": "1",
     "QT_X11_NO_MITSHM": "1",
-    "DOCKER": "1"
+    "DOCKER": "1",
+    "http_proxy": "http://127.0.0.1:7890",
+    "https_proxy": "http://127.0.0.1:7890",
+    "HTTP_PROXY": "http://127.0.0.1:7890",
+    "HTTPS_PROXY": "http://127.0.0.1:7890"    
   },
 
   "customizations": {
