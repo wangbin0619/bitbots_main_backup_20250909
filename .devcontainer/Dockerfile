@@ -1,4 +1,5 @@
-FROM ros:iron
+#FROM ros:iron
+FROM wb_ros2_cuda:latest
 
 # Basic Utilities
 ENV DEBIAN_FRONTEND=noninteractive
