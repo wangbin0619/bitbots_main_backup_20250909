@@ -46,7 +46,7 @@
     "--tmpfs",
     "/tmp:exec,mode=01777",
     "--gpus=all",
-    "--privileged",
+    // "--privileged",
     "--net=host",
     "--device=/dev/dri:/dev/dri",
     "-e", "DISPLAY=${env:DISPLAY}",
