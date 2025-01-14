@@ -7,6 +7,22 @@ Dev Container is used based on bitbots code base.
 1. /srv/host_home/git/bitbots/software
 2. /root/colcon_ws/src/bitbots_main/.devcontainer
 
+## Nvidia Docker Container
+
+```bash
+docker run --rm --privileged \
+  --gpus all \
+  nvidia/cuda:12.4.0-runtime-ubuntu22.04 nvidia-smi
+
+docker run --rm \
+  --gpus all \
+  --device /dev/nvidia0:/dev/nvidia0 \
+  --device /dev/nvidia-uvm:/dev/nvidia-uvm \
+  --device /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools \
+  --device /dev/nvidiactl:/dev/nvidiactl \
+  nvidia/cuda:12.4.0-runtime-ubuntu22.04 nvidia-smi
+```
+
 ## Forwarding display from docker container to host
 
 **(Done in Dev Container devcontainer.json)**
