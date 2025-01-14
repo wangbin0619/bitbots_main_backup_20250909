@@ -1,7 +1,18 @@
 {
   "name": "Bit-Bots Iron Dev",
 
-  "build": { "dockerfile": "Dockerfile" },
+  // "build": { "dockerfile": "Dockerfile" },
+
+  "build": { 
+    "dockerfile": "Dockerfile",
+    "context": ".",
+    "args": {
+      // Add any build args if needed
+    },
+    "options": {
+      "--pull": "never"
+    }
+  },
 
   "containerEnv": {
     "DISPLAY": "${localEnv:DISPLAY}",

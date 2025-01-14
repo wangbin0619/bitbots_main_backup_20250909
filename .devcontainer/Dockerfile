@@ -68,12 +68,16 @@ RUN apt-get install -y \
 # Update pip and install colcon-clean
 RUN pip3 install pip -U
 
+# # Set git proxy configuration
+# RUN git config --global http.proxy http://127.0.0.1:7890 \
+#     && git config --global https.proxy http://127.0.0.1:7890
+
 # Install colcon extensions / patches
 RUN python3 -m pip install \
   git+https://github.com/ruffsl/colcon-clean \
-  git+https://github.com/timonegk/colcon-core.git@colors \
-  git+https://github.com/timonegk/colcon-notification.git@colors \
-  git+https://github.com/timonegk/colcon-output.git@colors
+  git+https://github.com/timonegk/colcon-core@colors \
+  git+https://github.com/timonegk/colcon-notification@colors \
+  git+https://github.com/timonegk/colcon-output@colors
 
 # Set zsh as default shell
 SHELL ["/bin/zsh", "-c"]
@@ -81,12 +85,12 @@ SHELL ["/bin/zsh", "-c"]
 # Create home directory and colcon workspace
 RUN mkdir -p "/root/colcon_ws"
 
+# First remove any existing oh-my-zsh directory to avoid conflicts
+RUN rm -rf /root/.oh-my-zsh
+
 # Install oh-my-zsh for pretty terminal
 # RUN sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && \
 #   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# First remove any existing oh-my-zsh directory to avoid conflicts
-RUN rm -rf /root/.oh-my-zsh
 
 # Then copy your local directories
 COPY ohmyzsh/ /root/.oh-my-zsh/
