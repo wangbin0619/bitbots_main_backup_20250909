@@ -1,3 +1,6 @@
+# temporary files
+**/software/
+
 # auto-generated documentation
 **/docs/_build
 **/docs/_out

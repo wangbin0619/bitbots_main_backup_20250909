@@ -93,8 +93,8 @@ RUN rm -rf /root/.oh-my-zsh
 #   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Then copy your local directories
-COPY ../../software/ohmyzsh/ /root/.oh-my-zsh/
-COPY ../../software/zsh-autosuggestions/ ${ZSH_CUSTOM:-/root/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/
+COPY ./software/ohmyzsh/ /root/.oh-my-zsh/
+COPY ./software/zsh-autosuggestions/ ${ZSH_CUSTOM:-/root/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/
 
 # No need to run install.sh since we've directly copied the files
 # Just ensure proper permissions
@@ -110,7 +110,7 @@ ENV QT_X11_NO_MITSHM=1
 WORKDIR "/root/colcon_ws"
 
 # To install related package
-COPY ../../software/webots_2022b_amd64.deb /tmp/webots_2022b_amd64.deb
+COPY ./software/webots_2022b_amd64.deb /tmp/webots_2022b_amd64.deb
 RUN apt-get install -y /tmp/webots_2022b_amd64.deb
 
 # # To install Nvidia cuda toolkit
