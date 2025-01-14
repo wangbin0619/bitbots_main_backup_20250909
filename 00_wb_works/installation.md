@@ -10,6 +10,10 @@ Dev Container is used based on bitbots code base.
 ## Nvidia Docker Container
 
 ```bash
+# On the host system, make sure no-cgroups is false.
+sudo nano /etc/nvidia-container-runtime/config.toml
+# Set no-cgroups = false
+
 docker run --rm --privileged \
   --gpus all \
   nvidia/cuda:12.4.0-runtime-ubuntu22.04 nvidia-smi

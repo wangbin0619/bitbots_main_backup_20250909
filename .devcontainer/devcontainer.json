@@ -45,9 +45,11 @@
   "runArgs": [
     "--tmpfs",
     "/tmp:exec,mode=01777",
+    "--gpus=all",
     "--privileged",
     "--net=host",
     "--device=/dev/dri:/dev/dri",
+    "-e", "DISPLAY=${env:DISPLAY}",
     "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
     "--cap-add=SYS_PTRACE",
     "--security-opt",

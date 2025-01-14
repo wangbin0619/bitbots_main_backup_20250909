@@ -1,4 +1,8 @@
-FROM nvidia/cuda:12.4.0-runtime-ubuntu22.04
+# FROM nvidia/cuda:12.4.0-runtime-ubuntu22.04
+FROM nvidia/cuda:12.4.0-devel-ubuntu22.04
+
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=all
 
 # Avoid prompts from apt
 ENV DEBIAN_FRONTEND=noninteractive

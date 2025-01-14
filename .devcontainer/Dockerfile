@@ -1,5 +1,5 @@
 #FROM ros:iron
-FROM wb_ros2_cuda:latest
+FROM wb_cuda_devel_ros2:latest
 
 # Basic Utilities
 ENV DEBIAN_FRONTEND=noninteractive
@@ -113,4 +113,9 @@ WORKDIR "/root/colcon_ws"
 COPY webots_2022b_amd64.deb /tmp/webots_2022b_amd64.deb
 RUN apt-get install -y /tmp/webots_2022b_amd64.deb
 
+# # To install Nvidia cuda toolkit
+# RUN apt update && \
+#     apt install nvidia-cuda-toolkit
 
+# Install mesa-utils which contains glxinfo
+RUN apt-get update && apt-get install -y mesa-utils
