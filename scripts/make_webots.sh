@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eEo pipefail
 
-WEBOTS_VERSION="2022b"
+WEBOTS_VERSION="2023b"
 WEBOTS_DOWNLOAD_URL="https://github.com/cyberbotics/webots/releases/download/R${WEBOTS_VERSION}/webots_${WEBOTS_VERSION}_amd64.deb"
 
 # check_internet_connection () {
