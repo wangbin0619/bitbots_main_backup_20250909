@@ -2,7 +2,25 @@
 
 Dev Container is used based on bitbots code base.
 
-## Directory Path
+## .zshrc
+
+1. The file in 00_wb_works is for Ubuntu Server system setup.
+2. The file in .devcontainer is for building docker image of bitbots.
+
+## Dev Container buildup steps
+
+1. Use Dockerfile in 00_wb_works/step_01_ubuntu_cuda_ros2 to add ROS2 on base of nvidia/cuda:12.2.0-Ubuntu 22.02
+   FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
+
+2. Use Dockerfile in .00_wb_works/step_02_ubuntu_cuda_ros2_bitbots to add additional bitbots required packages.
+   FROM wb_cuda_devel_ros2:latest
+
+3. In VScode, build the DevContainder using Dockerfile in .devcontainer.
+4. Docker Images List as below:
+    ID       CREATED         SIZE
+    vsc-bitbots_main-7bf6c5d452d4483615d2b20d84d313089ff59569694f38a4082194f8fed030ad   latest                     wb_cuda_devel_ros2_bitbots                                                          latest                     wb_cuda_devel_ros2                                                                  latest
+
+## Directory Path within Dev Container
 
 1. /srv/host_home/git/bitbots/software
 2. /root/colcon_ws/src/bitbots_main/.devcontainer
