@@ -6,7 +6,6 @@ Dev Container is used based on bitbots code base.
 
 1. The file in 00_wb_works is for Ubuntu Server system setup.
 2. The file in .devcontainer is for building docker image of bitbots.
-3. Test
 
 ## Dev Container buildup steps
 
