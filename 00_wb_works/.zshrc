@@ -113,26 +113,44 @@ SAVEHIST=10000
 setopt SHARE_HISTORY
 
 # Alias setting
-alias cmd-vx-ts-docker='sudo docker run \
+alias cmd-docker-vx-ts='sudo docker run \
     -it \
-    -v /home/wangbin/VX-TS/VIX-Term-Structure-Indicator/1_ubuntu_python_regression_test:/app/1_ubuntu_python_regression_test \
+    -v ~/VX-TS/VIX-Term-Structure-Indicator/1_ubuntu_python_regression_test:/app/1_ubuntu_python_regression_test \
     -w /app/1_ubuntu_python_regression_test \
     wb-vx-ts-regression-andconda-enviroment:latest \
     /bin/bash'
 
-alias cmd-robot-docker='sudo docker run \
+alias cmd-docker-robot='sudo docker run \
 			-it \
 			--env="DISPLAY" \
 			--env="QT_X11_NO_MITSHM=1" \
 			--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-			-v /home/wangbin/git/bitbots/bitbots_main:/app/bitbots_main \
+			-v ~/git/bitbots/bitbots_main:/app/bitbots_main \
 			-v ~/.ssh:/root/.ssh \
 			-w /app/bitbots_main \
 			wb-ros-iron-desktop-full-jammy-v1.0:latest \
 			/bin/bash'
 
+alias cmd-docker-open-webui='sudo docker run -d -p 3000:8080 --gpus all \
+				  --add-host=host.docker.internal:host-gateway \
+				  -e OLLAMA_API_BASE_URL=http://host.docker.internal:11400 \
+				  -v ~/.ollama:/root/.ollama \
+				  -v ~/Applications/open-webui:/app/backend/data \
+				  --name open-webui --restart always \
+				  ghcr.io/open-webui/open-webui:cuda'
+
+export STORAGE_LOCATION=$HOME/Applications/anythingllm
+alias cmd-docker-anythingllm='sudo docker run -d -p 3001:3001 --gpus all \
+					--cap-add SYS_ADMIN \
+					-v ${STORAGE_LOCATION}:/app/server/storage \
+					-v ${STORAGE_LOCATION}/.env:/app/server/.env \
+					-e STORAGE_DIR="/app/server/storage" \
+					mintplexlabs/anythingllm'
+
 alias cmd-terminator-large="terminator --geometry=1800X700"
 alias cmd-terminator-small="terminator --geometry=800X400"
+
+alias cmd-cursor="~/Applications/Cursor/Cursor-x86_64.AppImage --no-sandbox"
 
 alias -s txt=nano
 alias -s py=code
@@ -140,3 +158,5 @@ alias -s json=code
 
 export http_proxy="http://127.0.0.1:7890"
 export https_proxy="http://127.0.0.1:7890"
+
+export OLLAMA_KEEP_ALIVE="8h"
