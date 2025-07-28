@@ -1,1 +1,34 @@
-{}
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "LS",
+      "Glob",
+      "Grep",
+      "NotebookRead",
+      "WebFetch",
+      "WebSearch",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(which:*)",
+      "Bash(pwd:*)",
+      "Bash(whoami:*)",
+      "Bash(echo:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git config --get:*)",
+      "Bash(python --version:*)",
+      "Bash(python -c:*)",
+      "mcp__ide__getDiagnostics",
+      "mcp__ide__executeCode"
+    ],
+    "deny": []
+  }
+}
