@@ -1,15 +1,30 @@
 {
   "analysis_summary": {
-    "total_papers_analyzed": 12,
+    "total_papers_analyzed": 60,
     "main_categories": [
-      "Hardware & Robotics Platform",
-      "Motion Control & Locomotion",
-      "Computer Vision & Perception",
-      "Decision Making & Behavior",
-      "System Architecture & Integration",
-      "Datasets & Evaluation"
+      "Core Research Papers (01-17)",
+      "Academic Theses (101-128)", 
+      "Team Description Papers (301-309)",
+      "Project Reports (201-212)",
+      "ROS/System Papers (401-402)"
     ],
-    "analysis_focus": "Papers 01-17 and key team descriptions (301-309)"
+    "technical_domains": [
+      "Motion Control & Locomotion",
+      "Computer Vision & Perception", 
+      "Behavior & Decision Making",
+      "Hardware & Robotics Platform",
+      "System Architecture & Integration",
+      "Machine Learning & Optimization",
+      "Simulation & Modeling",
+      "Team Coordination & Communication"
+    ],
+    "analysis_focus": "Comprehensive analysis of all 60 BitBots research papers",
+    "time_span": "1997-2024",
+    "evolution_periods": [
+      "2012-2014: Foundation (Wolfgang-OP, basic behaviors)",
+      "2015-2017: Intelligence (ML integration, advanced motion)",
+      "2018-2020: Integration (ROS 2, system optimization)"
+    ]
   },
   "topic_categories": {
     "Hardware & Robotics Platform": {

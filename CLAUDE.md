@@ -129,31 +129,52 @@ Individual packages may have test directories. Use standard ROS 2 testing patter
 ### Performance Benchmarks & Targets
 - **Control frequencies**: Target >1kHz for servo communication, 715-750Hz achieved with full sensor reading
 - **Vision processing**: 16 FPS pipeline, 6.7 FPS neural inference on embedded hardware (<2W power)
-- **Motion timing**: Stand-up motions should complete within 2-3 seconds, walking speeds >0.5m/s forward
-- **Communication latency**: Multi-bus servo systems achieve 3x performance improvement over single bus
+- **Motion performance**: Walking speeds up to 0.3m/s, kick ball speeds 3-8m/s, stand-up time 2-5 seconds
+- **Vision accuracy**: Ball detection 85-95%, robot detection 70-90%, processing latency 50-200ms
+- **System performance**: ROS 2 latency 1-10ms, CPU usage 60-90%, memory usage 2-8GB
+- **Communication**: Team communication 2-10Hz, UDP multicast, message timeout 1000-5000ms
 - **Fall detection**: Minimum 295ms lead time required for successful recovery initiation
 
 ### Configuration Guidelines
 - **Robot-specific parameters**: Always check for robot variants (amy, donna, jack, melody, rory) in config files
+- **Motion control**: Walking frequency 1.0-2.0Hz, step length 0.02-0.08m, kick execution time 1.0-3.0s, balance threshold ±30°
+- **Vision processing**: Camera resolution 640x480 to 1920x1080, processing frequency 30-60 FPS, detection confidence 0.5-0.9
 - **Simulation vs real**: Separate parameter sets needed for sim-to-real transfer, especially for motion control
 - **Embedded deployment**: Consider Intel NCS2 constraints (<2W power, real-time inference requirements)
 - **Multi-task learning**: Prefer shared encoder architectures when implementing multiple vision tasks
+- **System integration**: Modular ROS nodes, configuration-driven parameters, hardware abstraction layers
 
 ## Research Foundation
 
-This codebase implements algorithms and approaches from 40+ research papers and theses by the Hamburg Bit-Bots team (2010-2024). Key research areas include:
+This codebase implements algorithms and approaches from **60 research papers and theses** by the Hamburg Bit-Bots team (1997-2024), representing 27 years of continuous research and development. The comprehensive research archive provides deep technical insights across all major robotics domains.
 
-### Academic Publications
-- **Motion Control**: Parameter optimization for walking gaits, stand-up motions, dynamic kicking
-- **Computer Vision**: YOEO multi-task networks, depth estimation, dataset creation (TORSO-21)
-- **System Architecture**: Dynamic Stack Decider, Humanoid Control Module, multi-tier control
-- **Hardware Design**: Wolfgang-OP robot platform, QUADDXL communication, elastic actuators
-- **Integration**: RoboCup competition experience, sim-to-real transfer, system robustness
+### Academic Publication Categories (60 papers total)
+- **Core Research Papers (17)**: Fundamental technical contributions and novel algorithms
+- **Academic Theses (28)**: Bachelor's and Master's theses with detailed technical implementations  
+- **Team Description Papers (8)**: System evolution and architecture from 2012-2020 competitions
+- **Project Reports (5)**: Course projects and practical implementations
+- **ROS/System Papers (2)**: ROS 2 performance analysis and concurrency studies
 
-### Research Archive
-- Full research papers available in `01_wb_works/01.02_papers/02_md/` (Markdown format)
-- Analysis summary at `00_tmp/bitbots_papers_analysis_summary.md`
-- Technical insights extracted from 12+ core publications and team description papers
+### Technical Domain Coverage (by research focus)
+- **Hardware Platform (0.43)**: Wolfgang-OP robots, sensors, actuators, communication protocols
+- **Machine Learning (0.34)**: Neural networks, optimization, parameter tuning, learning algorithms
+- **Computer Vision (0.31)**: CNN-based detection, depth estimation, semantic segmentation, datasets
+- **System Architecture (0.29)**: ROS integration, modular design, real-time systems, abstractions
+- **Simulation Modeling (0.24)**: Physics simulation, validation environments, sim-to-real transfer
+- **Motion Control (0.22)**: Quintic walking, dynamic kicking, balance, stand-up motions
+- **Team Coordination (0.21)**: Multi-agent systems, communication protocols, strategy planning
+- **Behavior Decision (0.19)**: DSD framework, state machines, action selection, planning
+
+### System Evolution Timeline
+- **2012-2014 Foundation**: Wolfgang-OP platform establishment, basic vision, manual parameter tuning
+- **2015-2017 Intelligence**: Machine learning integration, advanced motion control, CNN-based detection
+- **2018-2020 Integration**: ROS 2 migration, system-wide optimization, real-time performance focus
+
+### Research Archive & Analysis
+- **Full research papers**: Available in `01_wb_works/01.02_papers/02_md/` (Markdown format)
+- **Comprehensive analysis**: `00_tmp/bitbots_papers_comprehensive_summary.md` (60 papers analyzed)
+- **Technical knowledge extract**: `00_tmp/bitbots_technical_knowledge_extract.md` (AI assistance guide)
+- **Structured data**: `00_tmp/bitbots_comprehensive_papers_analysis.json` (machine-readable insights)
 
 ## Important Notes
 

@@ -20,7 +20,7 @@ def main():
     
     # Define paths
     pdf_dir = Path("D:/20-robot/01-bitbots/01_wb_works/01.02_papers/01_pdf")
-    converter_script = Path("D:/20-robot/01-bitbots/01_wb_works/01.03_utilities/pdf_to_markdown_converter.py")
+    converter_script = Path("D:/20-robot/01-bitbots/01_wb_works/01.03_utilities/01_pdf_converter/pdf_to_markdown_converter.py")
     
     # Validate paths
     if not pdf_dir.exists():
