@@ -10,8 +10,12 @@
       "Bash(pip install:*)",
       "Bash(vcs:*)",
       "Bash(mkdir:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(echo:*)"
     ],
     "deny": []
+  },
+  "hooks": {
+    "assistant-response-finish": "echo 'Hook triggered!' && python \"D:\\20-robot\\01-bitbots\\01_wb_works\\01.03_utilities\\play_completion_sound.py\""
   }
 }
