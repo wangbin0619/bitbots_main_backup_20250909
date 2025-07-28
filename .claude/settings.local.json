@@ -8,7 +8,9 @@
       "mcp__ide__executeCode",
       "Bash(python:*)",
       "Bash(pip install:*)",
-      "Bash(vcs:*)"
+      "Bash(vcs:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)"
     ],
     "deny": []
   }
