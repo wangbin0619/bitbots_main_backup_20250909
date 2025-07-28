@@ -2323,12 +2323,12 @@ the Game 2021/2022,” accessed:
 of
 //humanoid.robocup.org/wp-content/uploads/RC-HL-2022-Rules-3.pdf
 
+2023-05-17.
+
 “RoboCup Soccer Humanoid League Laws
 https:
 
 [Online]. Available:
-
-2023-05-17.
 
 [5] O. Michel, “ Cyberbotics Ltd. Webots™: professional mobile robot simulation ,” Interna-
 
