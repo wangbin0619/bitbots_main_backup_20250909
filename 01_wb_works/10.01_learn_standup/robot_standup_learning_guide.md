@@ -99,20 +99,33 @@ bitbots_dynup/
 
 ### Step 4: Hands-On Learning Path
 
-**Beginner (Week 1-2)**:
-- Run existing standup motions in simulation
-- Modify timing parameters and observe effects
+> **⚠️ IMPORTANT: Start with Simulator Environment**
+> 
+> Always begin learning with simulation before moving to physical hardware. This approach is:
+> - **Safer**: No risk of damaging expensive robot hardware during learning
+> - **Faster**: Rapid iteration cycles for parameter testing and modification
+> - **Proven**: Sim-to-real transfer validated on multiple robot platforms
+> - **Recommended**: BitBots team uses separate `dynup_sim.yaml` for simulation learning
+
+**Beginner (Week 1-2) - SIMULATION ONLY**:
+- **Start with simulation**: `ros2 launch bitbots_dynup test.launch`
+- Run existing standup motions in simulation environment
+- Modify timing parameters in `dynup_sim.yaml` and observe effects
 - Study spline generation mathematics (quintic polynomials)
 - Learn fused angles representation for orientation
+- Practice with debug monitoring: `ros2 topic echo /dynup_engine_debug`
 
-**Intermediate (Week 3-4)**:
-- Implement custom pose sequences
-- Test parameter optimization with MOTPE
-- Study stabilization PD controller tuning
-- Compare open-loop vs closed-loop performance
+**Intermediate (Week 3-4) - SIMULATION + THEORY**:
+- Implement custom pose sequences in simulation
+- Test parameter optimization with MOTPE in simulation
+- Study stabilization PD controller tuning principles
+- Compare open-loop vs closed-loop performance in simulation
+- Master simulation before considering hardware
 
-**Advanced (Week 5-8)**:
-- Port to new robot platform (different kinematics)
+**Advanced (Week 5-8) - HARDWARE TRANSITION**:
+- **Only after mastering simulation**: Transition to physical robot
+- Port optimized parameters from `dynup_sim.yaml` to `dynup_config.yaml`
+- Test on physical robot with validated parameters
 - Implement multi-objective optimization objectives
 - Add new motion phases or recovery strategies
 - Optimize for specific competition conditions
@@ -136,15 +149,20 @@ colcon build --packages-select bitbots_dynup
 
 **Test Commands**:
 ```bash
-# Launch standup system
-ros2 launch bitbots_dynup dynup.launch
-
-# Test in simulation
+# SIMULATION FIRST (recommended starting point)
 ros2 launch bitbots_dynup test.launch
 
-# Monitor debug output
+# Monitor debug output during simulation
 ros2 topic echo /dynup_engine_debug
+
+# Physical robot launch (only after simulation mastery)
+ros2 launch bitbots_dynup dynup.launch
 ```
+
+**Environment-Specific Configuration**:
+- **Simulation**: Uses `config/dynup_sim.yaml` with adapted parameters
+- **Physical Robot**: Uses `config/dynup_config.yaml` with hardware-tuned parameters
+- **Parameter Transfer**: Validated sim-to-real transfer methodology ensures smooth transition
 
 ## Key Learning Resources
 
