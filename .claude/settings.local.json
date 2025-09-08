@@ -33,7 +33,10 @@
       "Bash(mv:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(make pre-commit:*)",
+      "Bash(pip install:*)",
+      "Bash(pre-commit:*)"
     ],
     "deny": []
   }
