@@ -35,8 +35,8 @@
     }
   },
 
-  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/root/colcon_ws/src/bitbots_main",
-  "workspaceFolder": "/root/colcon_ws/src/bitbots_main",
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/home/robot/colcon_ws/src/bitbots_main",
+  "workspaceFolder": "/home/robot/colcon_ws/src/bitbots_main",
 
   "mounts": [
     "type=bind,source=${localEnv:HOME},target=/srv/host_home,consistency=cached"
@@ -56,5 +56,5 @@
     "seccomp=unconfined"
   ],
 
-  "postCreateCommand": "git config --global --add safe.directory '*'"
+  "postCreateCommand": "sudo chown -R robot:robot /home/robot/colcon_ws && git config --global --add safe.directory '*'"
 }

@@ -22,12 +22,25 @@ RUN apt-get update && apt-get install -y curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Next, install the Claude Code CLI
-RUN npm install -g @anthropic/claude-code
+RUN npm install -g @anthropic-ai/claude-code
 
-# Add claude-skip alias
-RUN echo 'alias claude-skip="claude --dangerously-skip-permissions"' >> /root/.zshrc
+# Create robot user with sudo privileges
+RUN useradd -m -s /bin/zsh robot && \
+    usermod -aG sudo robot && \
+    echo "robot ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Copy zsh configuration from root to robot user
+RUN cp /root/.zshrc /home/robot/.zshrc && \
+    cp -r /root/.oh-my-zsh /home/robot/.oh-my-zsh && \
+    chown -R robot:robot /home/robot/.oh-my-zsh /home/robot/.zshrc
+
+# Add claude-skip alias for robot user
+RUN echo 'alias claude-skip="claude --dangerously-skip-permissions"' >> /home/robot/.zshrc
+
+# Switch to robot user
+USER robot
 
 # Switch to the workspace directory
-WORKDIR "/root/colcon_ws"
+WORKDIR "/home/robot/colcon_ws"
 
 
