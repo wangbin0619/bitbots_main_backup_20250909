@@ -16,16 +16,22 @@ Dev Container is used based on bitbots code base.
    FROM wb_cuda_devel_ros2:latest
 
 3. In VScode, build the DevContainder using Dockerfile in .devcontainer.
+
 4. Docker Images List as below:
-    ID       CREATED         SIZE
-    vsc-bitbots_main-7bf6c5d452d4483615d2b20d84d313089ff59569694f38a4082194f8fed030ad   latest                     wb_cuda_devel_ros2_bitbots                                                          latest                     wb_cuda_devel_ros2                                                                  latest
+  ID       CREATED         SIZE
+  vsc-bitbots_main-7bf6c5d452d4483615d2b20d84d313089ff59569694f38a4082194f8fed030ad   latest                          
+  wb_cuda_devel_ros2_bitbots                                                          latest                     
+  wb_cuda_devel_ros2                                                                  latest
+
+5. Install Claude Code manully: 
+  npm install -g @anthropic-ai/claude-code
 
 ## Directory Path within Dev Container
 
 1. /srv/host_home/git/bitbots/software
 2. /root/colcon_ws/src/bitbots_main/.devcontainer
 
-## Nvidia Docker Container
+## Nvidia Docker Container - Ensure it works
 
 ```bash
 # On the host system, make sure no-cgroups is false.
