@@ -47,6 +47,7 @@ docker run --rm \
   --device /dev/nvidiactl:/dev/nvidiactl \
   nvidia/cuda:12.4.0-runtime-ubuntu22.04 nvidia-smi
 ```
+
 ## Forwarding display from docker container to host
 **(Done in Dev Container devcontainer.json)**
 
@@ -151,3 +152,16 @@ Ensure your devcontainer.json includes these environment variables:
 4. Test ROS2 GUI: `ros2 run turtlesim turtlesim_node`
 
 The key difference from local access is enabling X11 forwarding through SSH and ensuring the X server on your Windows laptop accepts network connections.
+
+## Robot Repository Full Build
+
+Hello there! Welcome to the Bit-Bots ROS 2 development environment!
+If you just (re)build this container a few manual steps are nessessary:
+Create a ssh key with 'ssh-keygen -q -f /home/robot/.ssh/id_rsa -N "" &&  cat /home/robot/.ssh/id_rsa.pub'.
+Copy the commands output and add it to your GitHub account ('https://github.com/settings/keys') (ctrl+click to open in browser).
+
+Now you can install the rest of the workspace and compile everything with **'make install && cba'**.
+To update an existing workspace you can use 'make update && cba'.
+To compile all packages in the workspace use 'cba'. If you want to compile only a specific package use 'cbs <package_name>'.
+
+Run 'xhost local:root' in a terminal on the host machine to enable GUI applications (e.g. rviz2) in the container. This needs to be done after every restart of the host machine.
