@@ -1,0 +1,60 @@
+{
+  "name": "Bit-Bots Iron Dev",
+
+  // "build": { "dockerfile": "Dockerfile" },
+
+  "build": { 
+    "dockerfile": "Dockerfile",
+    "context": ".",
+    "args": {
+      // Add any build args if needed
+    },
+    "options": {
+      "--pull": "never"
+    }
+  },
+
+  "containerEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "LIBGL_ALWAYS_SOFTWARE": "1",
+    "QT_X11_NO_MITSHM": "1",
+    "DOCKER": "1",
+    "http_proxy": "http://127.0.0.1:7890",
+    "https_proxy": "http://127.0.0.1:7890",
+    "HTTP_PROXY": "http://127.0.0.1:7890",
+    "HTTPS_PROXY": "http://127.0.0.1:7890"    
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": { "zsh": { "path": "/bin/zsh" } }
+      },
+      "extensions": ["ms-iot.vscode-ros"]
+    }
+  },
+
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/home/robot/colcon_ws/src/bitbots_main",
+  "workspaceFolder": "/home/robot/colcon_ws/src/bitbots_main",
+
+  "mounts": [
+    "type=bind,source=${localEnv:HOME},target=/srv/host_home,consistency=cached"
+  ],
+
+  "runArgs": [
+    "--tmpfs",
+    "/tmp:exec,mode=01777",
+    "--gpus=all",
+    // "--privileged",
+    "--net=host",
+    "--device=/dev/dri:/dev/dri",
+    "-e", "DISPLAY=${env:DISPLAY}",
+    "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined"
+  ],
+
+  "postCreateCommand": "sudo chown -R robot:robot /home/robot/colcon_ws && git config --global --add safe.directory '*'"
+}
