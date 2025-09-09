@@ -35,7 +35,7 @@
     }
   },
 
-  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/home/robot/colcon_ws/src/bitbots_main",
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/home/robot/colcon_ws/src/bitbots_main_backup_20250909",
   "workspaceFolder": "/home/robot/colcon_ws/src/bitbots_main",
 
   "mounts": [
